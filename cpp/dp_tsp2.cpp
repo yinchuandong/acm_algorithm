@@ -13,8 +13,8 @@ int main()
     int b=(int)pow(2,n-1);
     int D[20][20];//原图的邻接矩阵
     
-    fstream fin("TSPinput1.txt",ios::in);//打开输入文件
-    fstream fout("TSPoutput.txt",ios::out);//打开输出文件
+    fstream fin("../data/tsp_input.txt",ios::in);//打开输入文件
+    fstream fout("../data/tsp_output.txt",ios::out);//打开输出文件
 
     //读入数据到邻接矩阵D中
     for(i=0;i<n;i++)
