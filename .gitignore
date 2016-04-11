@@ -1,2 +1,4 @@
 java/bin
 *.out
+*.swp
+data/*.txt
