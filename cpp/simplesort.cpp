@@ -49,7 +49,8 @@ int main(int argnum, char* args[]){
 	
 	int A[] = {7, 9, 3, 5, 4, 1, 6};
 	int n = 7;
-	insertsort(A, n);
+	selectsort(A, n);
+	//insertsort(A, n);
 	display(A, n);
 	return 0;
 }
