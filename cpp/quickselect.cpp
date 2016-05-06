@@ -47,6 +47,10 @@ int quickselct(int A[], int lo, int hi, int k){
 
 
 int main(int argnum, char *args[]){
+	int B1[] = {4,1,5,6,3,2,0};
+	int rt0 = partition(B1, 0, 6);
+	display(B1, 0, 6);
+	return 0;
 	int A[] = {39, 23, 12, 77, 48, 61, 55};
 	int rt = quickselct(A, 0, 6, 4);
 	cout<<"result:"<<rt<<endl;
