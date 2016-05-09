@@ -3,9 +3,6 @@
 
 using namespace std;
 
-
-
-
 void swap(int &a, int &b){
 	int t = a;
 	a = b;
@@ -20,10 +17,10 @@ void adjustHeap(int arr[], int size, int i){
 		left = 2*i + 1;
 		right = 2*i + 2;
 		if (left < size && arr[left] > arr[max]){
-			max = left;	
+			max = left;
 		}
 		if (right < size && arr[right] > arr[max]){
-			max = right;	
+			max = right;
 		}
 		if (max != i){
 			swap(arr[max], arr[i]);
@@ -57,32 +54,31 @@ void display(int arr[], int size){
 }
 
 
-int merge(int n_args, ...)
-{
+int merge(int n_args, ...){
 	va_list ap;
 	va_start(ap, n_args);
 	int n = va_arg(ap, int);
-	int *arr = new int[n];
+	int *flat_arr = new int[n];
 	int idx = 0;
 	for(int i = 2; i <= n_args; i+=2) {
 		int *a = va_arg(ap, int*);
 		int len = va_arg(ap, int);
 		for (int j = 0; j < len; j++){
-			arr[idx++] = a[j];
+			flat_arr[idx++] = a[j];
 		}
 		display(a, len);
 	}
-	display(arr, n);
-	buildHeap(arr, n);
-	heapsort(arr, n);
-	display(arr, n);
+	display(flat_arr, n);
+	buildHeap(flat_arr, n);
+	heapsort(flat_arr, n);
+	display(flat_arr, n);
 	va_end(ap);
 	return 0;
 }
 
 
 int main(int argNum, char* args[]){
-	
+
 	int A[] = {1, 4, 7, 11};
 	int B[] = {2, 5, 8, 10};
 	int C[] = {3, 6, 9};
