@@ -17,6 +17,42 @@ def mergeKArray(*lists):
             heapq.heappush(h, (lists[k][i], i, k))
     return r
 
+
+def mainMergeK(*lists):
+    k = len(lists)
+    if k > 1:
+        mid = int(k / 2)
+        B = mainMergeK(*lists[0: mid])
+        C = mainMergeK(*lists[mid:])
+        A = merge(B, C)
+        return A
+    return lists[0]
+
+
+def merge(B, C):
+    A = []
+    p = len(B)
+    q = len(C)
+    i = 0
+    j = 0
+    while i < p and j < q:
+        if B[i] <= C[j]:
+            A.append(B[i])
+            i += 1
+        else:
+            A.append(C[j])
+            j += 1
+    if i == p:
+        for c in C[j:]:
+            A.append(c)
+    else:
+        for b in B[i:]:
+            A.append(b)
+    return A
+
+
 if __name__ == '__main__':
-    x = mergeKArray([1, 3, 5], [2, 4, 6], [7, 8, 10], [9])
+    # x = mergeKArray([1, 3, 5], [2, 4, 6], [7, 8, 10], [9])
+    # print x
+    x = mainMergeK([1, 3, 5], [2, 4, 6], [7, 8, 10], [9])
     print x
