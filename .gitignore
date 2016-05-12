@@ -1,4 +1,5 @@
 java/bin
 *.out
 *.swp
+*ropeproject
 data/*.txt
