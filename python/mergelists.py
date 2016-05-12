@@ -2,14 +2,15 @@ import heapq
 
 
 def mergeKArray(*lists):
+    # implemented by min heap
     h = []
     r = []
     for k, arr in enumerate(lists):
         heapq.heappush(h, (arr[0], 0, k))
     while h:
-        # min is the element
-        # i is the index of element in k-th array
-        # k is the index of array
+        # min is the minimum element
+        # i is the index of the min in the k-th array
+        # k is the index of array in the list
         min, i, k = heapq.heappop(h)
         r.append(min)
         if i < len(lists[k]) - 1:
@@ -19,6 +20,7 @@ def mergeKArray(*lists):
 
 
 def mainMergeK(*lists):
+    # implemented by k-way partition
     k = len(lists)
     if k > 1:
         mid = int(k / 2)
