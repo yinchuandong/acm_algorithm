@@ -18,6 +18,7 @@ def isTrianglable(points):
         for slope in slopeArr[1:]:
             if slope == preSlope:
                 return False
+            preSlope = slope
     return True
 
 

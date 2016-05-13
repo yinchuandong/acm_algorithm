@@ -27,6 +27,7 @@ def mainMergeK(*lists):
         B = mainMergeK(*lists[0: mid])
         C = mainMergeK(*lists[mid:])
         A = merge(B, C)
+        print B, ' + ', C, ' = ', A
         return A
     return lists[0]
 
@@ -56,5 +57,5 @@ def merge(B, C):
 if __name__ == '__main__':
     # x = mergeKArray([1, 3, 5], [2, 4, 6], [7, 8, 10], [9])
     # print x
-    x = mainMergeK([1, 3, 5], [2, 4, 6], [7, 8, 10], [9])
+    x = mainMergeK([1, 3, 5], [2, 4, 6], [7, 8, 10], [9], )
     print x
