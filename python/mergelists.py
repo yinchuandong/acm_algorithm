@@ -3,20 +3,20 @@ import heapq
 
 def mergeKArray(*lists):
     # implemented by min heap
-    h = []
-    r = []
-    for k, arr in enumerate(lists):
-        heapq.heappush(h, (arr[0], 0, k))
-    while h:
+    heap = []
+    result = []
+    for row_id, arr in enumerate(lists):
+        heapq.heappush(heap, (arr[0], row_id, 0))
+    while heap:
         # min is the minimum element
-        # i is the index of the min in the k-th array
-        # k is the index of array in the list
-        min, i, k = heapq.heappop(h)
-        r.append(min)
-        if i < len(lists[k]) - 1:
-            i += 1
-            heapq.heappush(h, (lists[k][i], i, k))
-    return r
+        # col is the index of the min in the k-th array
+        # row is the index of array in the list
+        min, row_id, col_id = heapq.heappop(heap)
+        result.append(min)
+        if col_id < len(lists[row_id]) - 1:
+            col_id += 1
+            heapq.heappush(heap, (lists[row_id][col_id], row_id, col_id))
+    return result
 
 
 def mainMergeK(*lists):
@@ -55,7 +55,7 @@ def merge(B, C):
 
 
 if __name__ == '__main__':
-    # x = mergeKArray([1, 3, 5], [2, 4, 6], [7, 8, 10], [9])
-    # print x
-    x = mainMergeK([1, 3, 5], [2, 4, 6], [7, 8, 10], [9], )
+    x = mergeKArray([1, 3, 5], [2, 4, 6], [7, 8, 10], [9])
     print x
+    # x = mainMergeK([1, 3, 5], [2, 4, 6], [7, 8, 10], [9], )
+    # print x
