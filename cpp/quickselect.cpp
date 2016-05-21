@@ -28,34 +28,35 @@ int partition(int A[], int lo, int hi){
 	}
 	swap(A[lo], A[s]);
 	display(A, lo, hi);
-	cout << "lo:"<<lo<<" hi"<<hi<<endl;
+	cout << "lo:"<<lo<<" hi:"<<hi<<endl;
 	return s;
 }
 
-int quickselct(int A[], int lo, int hi, int k){
+int quickselect(int A[], int lo, int hi, int k){
+	if(lo > hi){
+		return A[lo];
+	}
 	int s = partition(A, lo, hi);
-	if(lo + k - 1 == s){
+	if(k - 1 == s){
 		return A[s];
 	}else{
-		if(s > lo + k - 1){
-			return quickselct(A, lo, s - 1, k);
+		if(k - 1 < s){
+			return quickselect(A, lo, s - 1, k);
 		}else{
-			return quickselct(A, s + 1, hi, k - (s + 1));
+			return quickselect(A, s + 1, hi, k);
 		}
 	}
 }
 
 
+
 int main(int argnum, char *args[]){
-	int B1[] = {4,1,5,6,3,2,0};
-	int rt0 = partition(B1, 0, 6);
-	display(B1, 0, 6);
-	return 0;
-	int A[] = {39, 23, 12, 77, 48, 61, 55};
-	int rt = quickselct(A, 0, 6, 4);
+	// int A[] = {39, 23, 12, 77, 48, 61, 55, 78};
+	int A[] = {3, 2, 1, 4, 5, 6, 7, 8};
+	int rt = quickselect(A, 0, 7, 3);
 	cout<<"result:"<<rt<<endl;
-	int B[] = {72, 29, 64, 86, 33, 89, 38, 32, 94, 42};
-	int rt2 = quickselct(B, 0, 9, 5);
-	cout<<"result:"<<rt2<<endl;
+	// int B[] = {72, 29, 64, 86, 33, 89, 38, 32, 94, 42};
+	// int rt2 = quickselect(B, 0, 9, 5);
+	// cout<<"result:"<<rt2<<endl;
 	return 0;
 }
