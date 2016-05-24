@@ -53,6 +53,29 @@ void postorder_rer(Tree *node){
 	}
 }
 
+void postorder(Tree *node){
+	stack<Tree*> st;
+    Tree *pre = NULL;
+    Tree *cur = NULL;
+    st.push(node);
+    while(!st.empty()){
+        cur = st.top();
+        if ((cur->left == NULL && cur->right == NULL) 
+            || (pre != NULL && (cur->left == pre || cur->right == pre))){
+            cout << cur->val<<',';
+            st.pop();
+            pre = cur;
+        }else{
+            if (cur->right != NULL){
+                st.push(cur->right);
+            }
+            if (cur->left != NULL){
+                st.push(cur->left);
+            }
+        }
+    }
+}
+
 int main(int argsNum, char* args[]){
 	Tree *t17 = new Tree(); t17->val = 17;
 	Tree *t33 = new Tree(); t33->val = 33;
@@ -69,10 +92,11 @@ int main(int argsNum, char* args[]){
 	t48->left = t11; t48->right = t14;
 	t16->left = t38; t16->right = t31;	
 
-	preorder(t17);
-	preorder_rer(t17); cout<<endl;
-	inorder_rer(t17); cout<<endl;
-	postorder_rer(t17); cout<<endl;
+	// preorder(t17);
+	// preorder_rer(t17); cout<<endl;
+	// inorder_rer(t17); cout<<endl;
+	// postorder_rer(t17); cout<<endl;
+	// postorder(t17); cout<<endl;
 
 
 		
