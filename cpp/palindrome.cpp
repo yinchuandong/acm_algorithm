@@ -8,7 +8,7 @@ using namespace std;
 
 class Solution {
 public:
-   
+
     bool isPalindrome(string word){
         int lo = 0, hi = word.size() - 1;
         while(lo < hi){

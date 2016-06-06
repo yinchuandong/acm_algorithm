@@ -66,7 +66,7 @@ int quickselect_old(int A[], int lo, int hi, int k){
 
 int main(int argnum, char *args[]){
 	// correct version
-	int A[] = {3, 2, 1, 4, 5, 6, 7, 8};
+	int A[] = {1, 2, 3, 4, 5, 6, 7, 8};
 	int rt = quickselect(A, 0, 7, 3);
 	cout<<"result:"<<rt<<endl;
 
